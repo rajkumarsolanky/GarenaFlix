@@ -1,5 +1,8 @@
 **GarenaFlix** is a polished static website built with HTML, CSS, and JavaScript that showcases premium streaming subscription plans in a modern entertainment hub layout.
 
+> Link Demo Page
+https://rajkumarsolanky.github.io/GarenaFlix/
+
 > What it includes
 
 - **Landing page** with animated streaming service cards
