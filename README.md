@@ -1,6 +1,6 @@
 **GarenaFlix** is a polished static website built with HTML, CSS, and JavaScript that showcases premium streaming subscription plans in a modern entertainment hub layout.
 
-### What it includes
+> What it includes
 
 - **Landing page** with animated streaming service cards
 - **Featured services**: Netflix, Prime Video, Disney+, Spotify, YouTube, Crunchyroll
@@ -10,7 +10,7 @@
 - **Responsive design** for desktop and mobile
 - **Smooth scrolling** and scroll progress indicator
 
-### Key technologies
+ > Key technologies
 
 - HTML5
 - CSS3
@@ -18,7 +18,7 @@
 - `localStorage` / `sessionStorage`
 - Responsive layout with media queries
 
-### Structure
+> Structure
 
 - index.html — main homepage
 - styles.css — core layout and styling
@@ -27,13 +27,10 @@
 - payment-handle.js — payment logic, validation, redirect flow
 - database.js — transaction storage, search, delete, export functions
 - services — individual service pages, payment page, confirmation, customer data, plans
-
-### Purpose
+> Purpose
 
 This repo is ideal for a demo project or portfolio website showing:
 - a streaming subscription marketplace concept
 - interactive payment UI
 - service navigation
 - responsive modern styling
-
-> Use this text in your GitHub README or repository description to clearly communicate the project’s purpose and main features.
