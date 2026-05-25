@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crunchyroll Subscription Plans</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .plans-header h1 {
+            background: linear-gradient(to right, #f47521, #ff6b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features li::before {
+            color: #f47521;
+        }
+
+        .plan .cta-button {
+            background: linear-gradient(45deg, #f47521, #ff6b00);
+        }
+
+        .plan:hover {
+            border: 1px solid rgba(244, 117, 33, 0.3);
+        }
+    </style>
+    <link rel="icon" type="image/icon" href="../images/Crunchyroll.png">
+
+    <meta name="service-name" content="crunchyroll">
+
+    <script src="../js/payment-handle.js"></script>
+</head>
+<body>
+    <div class="plans-container">
+        <div class="plans-header scroll-animate">
+            <h1>Crunchyroll</h1>
+        </div>
+
+        <div class="plan-cards">
+            <div class="plan scroll-animate">
+                <h2>Fan</h2>
+                <p class="price">Rs.150/month</p>
+                <div class="features">
+                    <ul>
+                        <li>Ad-free anime streaming</li>
+                        <li>1 streaming</li>
+                        <li>New episodes after 1 hour</li>
+                        <li>720p quality</li>
+                        <li>Basic</li>
+                        <li>No Games Premium</li>
+                    </ul>
+                </div>
+                <button class="cta-button" onclick="paymentHandler.goToPayment('fan', 'crunchyroll')">Start Watching</button>
+            </div>
+
+            <div class="plan scroll-animate">
+                <h2>Mega Fan</h2>
+                <p class="price">Rs.250/month</p>
+                <div class="features">
+                    <ul>
+                        <li>Ad-free anime streaming</li>
+                        <li>1 streaming</li>
+                        <li>New episodes instantly</li>
+                        <li>1080p quality</li>
+                        <li>Offline viewing</li>
+                        <li>Games Premium</li>
+                    </ul>
+                </div>
+                <button class="cta-button" onclick="paymentHandler.goToPayment('mega', 'crunchyroll')">Go Premium</button>
+            </div>
+
+            <div class="plan scroll-animate">
+                <h2>Ultimate Fan</h2>
+                <p class="price">Rs.350/month</p>
+                <div class="features">
+                    <ul>
+                        <li>Ad-free anime streaming</li>
+                        <li>1 Streaming</li>
+                        <li>New episodes instantly</li>
+                        <li>1080p quality + HDR</li>
+                        <li>Unlimited offline viewing</li>
+                        <li>Annual swag bag + Games Premium</li>
+                    </ul>
+                </div>
+                <button class="cta-button" onclick="paymentHandler.goToPayment('ultimate', 'crunchyroll')">Get Ultimate</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.scroll-animate').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>

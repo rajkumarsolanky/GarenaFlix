@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GarenaFlix-Subscriptions Entertainment Hub</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="scroll-progress"></div>
+    <main>
+        <div class="banner scroll-animate">
+            <div class="content">
+                <h1 class="left">Garena<b>Flix</b></h1>
+                <div class="right">
+                    <h2>Entertainment Hub</h2>
+                    <p>Your Ultimate Streaming Guide</p>
+                    <p>Discover the best deals on premium streaming services
+                        <br>all in one place</p>
+                </div>
+            </div>
+        </div>
+
+        <section id="Crunchyroll" class="service-card scroll-animate">
+            <div class="container">
+                <img src="images/Crunchyroll.png" alt="Crunchyroll Premium" loading="lazy" decoding="async" class="service-image">
+                <div class="content">
+                    <h2 class="service-title">Crunchyroll Premium</h2>
+                    <p>Stream ad-free anime, read manga, and watch simulcasts. New subscribers get 45% off annual membership plus exclusive merchandise discounts!</p>
+                    <a href="services/crunchyroll.html" class="cta-button">View Plans</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="netflix" class="service-card scroll-animate">
+            <div class="container">
+                <img src="images/Netflix.png" alt="Netflix Premium Subscription" loading="lazy" decoding="async" fetchpriority="high" class="service-image">
+                <div class="content">
+                    <h2 class="service-title">Netflix Premium</h2>
+                    <p>Unlock unlimited entertainment in 4K HDR! Experience exclusive shows, blockbuster movies, and binge-worthy series. Save 50% on your first 6 months of Netflix Premium.</p>
+                    <a href="services/netflix.html" class="cta-button">View Plans</a>
+                </div>
+            </div>
+        </section>
+    
+        <section id="prime-video" class="service-card scroll-animate">
+            <div class="container">
+                <img src="images/Primevideo.png" alt="Amazon Prime Video Subscription" loading="lazy" decoding="async" class="service-image">
+                <div class="content">
+                    <h2 class="service-title">Prime Video</h2>
+                    <p>Stream award-winning Amazon Originals, latest movies, and exclusive sports content. Get 20% off annual membership plus free Prime shipping benefits!</p>
+                    <a href="services/prime-video.html" class="cta-button">View Plans</a>
+                </div>
+            </div>
+        </section>
+    
+        <section id="disney" class="service-card scroll-animate">
+            <div class="container">
+                <img src="images/Disney+.png" alt="Disney+ Streaming Bundle" loading="lazy" decoding="async" class="service-image">
+                <div class="content">
+                    <h2 class="service-title">Disney+ Bundle</h2>
+                    <p>Get the ultimate entertainment package with Disney+, Hulu, and ESPN+. Enjoy family favorites, sports, and hit shows at 30% off for 3 months!</p>
+                    <a href="services/disney.html" class="cta-button">View Plans</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="Spotify" class="service-card scroll-animate">
+            <div class="container">
+                <img src="images/Spotify.png" alt="Spotify Premium Music" loading="lazy" decoding="async" fetchpriority="high" class="service-image">
+                <div class="content">
+                    <h2 class="service-title">Spotify Premium</h2>
+                    <p>Enjoy ad-free music, offline listening, and HQ audio. First 3 months at 60% off! Plus get exclusive access to live lyrics and collaborative playlists.</p>
+                    <a href="services/spotify.html" class="cta-button">View Plans</a>
+                </div>
+            </div>
+        </section>
+    
+        <section id="Youtube" class="service-card scroll-animate">
+            <div class="container">
+                <img src="images/Youtube.png" alt="YouTube Premium" loading="lazy" decoding="async" class="service-image">
+                <div class="content">
+                    <h2 class="service-title">YouTube Premium</h2>
+                    <p>Watch without ads, download videos, and play in background. Get YouTube Music included! Special offer: 40% off your first year.</p>
+                    <a href="services/youtube.html" class="cta-button">View Plans</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 GarenaFlix - Your Premium Streaming Guide. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.scroll-animate').forEach((el) => observer.observe(el));
+
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const scrollPx = document.documentElement.scrollTop;
+            const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = `${scrollPx / winHeightPx * 100}%`;
+            scrollProgress.style.transform = `scaleX(${scrolled})`;
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

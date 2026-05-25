@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Video Subscription Plans</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .plans-header h1 {
+            background: linear-gradient(to right, #00a8e1, #0073bb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features li::before {
+            color: #00a8e1;
+        }
+
+        .plan .cta-button {
+            background: linear-gradient(45deg, #00a8e1, #0073bb);
+        }
+
+        .plan:hover {
+            border: 1px solid rgba(0, 168, 225, 0.3);
+        }
+    </style>
+    <link rel="icon" type="image/icon" href="../images/Primevideo.png">
+
+    <meta name="service-name" content="prime-video">
+
+    <script src="../js/payment-handle.js"></script>
+</head>
+<body>
+    <div class="plans-container">
+        <div class="plans-header scroll-animate">
+            <h1>Prime Video</h1>
+        </div>
+
+        <div class="plan-cards">
+            <div class="plan scroll-animate">
+                <h2>Mobile</h2>
+                <p class="price">Rs.100/month</p>
+                <div class="features">
+                    <ul>
+                        <li>Watch on mobile only</li>
+                        <li>1 device at a time</li>
+                        <li>SD quality (480p)</li>
+                        <li>No Prime shopping benefits</li>
+                        <li>Ad-supported streaming</li>
+                        <li>Basic support</li>
+                    </ul>
+                </div>
+                <button class="cta-button" onclick="paymentHandler.goToPayment('mobile', 'prime')">Start Mobile</button>
+            </div>
+
+            <div class="plan scroll-animate">
+                <h2>Prime</h2>
+                <p class="price">Rs.200/month</p>
+                <div class="features">
+                    <ul>
+                        <li>Watch on any device</li>
+                        <li>2 devices at once</li>
+                        <li>HD quality (1080p)</li>
+                        <li>Prime shopping benefits</li>
+                        <li>Ad-free streaming</li>
+                        <li>24/7 support</li>
+                    </ul>
+                </div>
+                <button class="cta-button" onclick="paymentHandler.goToPayment('prime', 'prime')">Get Prime</button>
+            </div>
+
+            <div class="plan scroll-animate">
+                <h2>Family</h2>
+                <p class="price">Rs.300/month</p>
+                <div class="features">
+                    <ul>
+                        <li>Watch on any device</li>
+                        <li>4 devices at once</li>
+                        <li>4K UHD + HDR</li>
+                        <li>Prime shopping benefits</li>
+                        <li>Ad-free streaming</li>
+                        <li>Family sharing</li>
+                    </ul>
+                </div>
+                <button class="cta-button" onclick="paymentHandler.goToPayment('family', 'prime')">Choose Family</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe all elements with scroll-animate class
+        document.querySelectorAll('.scroll-animate').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>

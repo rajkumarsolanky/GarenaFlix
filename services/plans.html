@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plans & Pricing - GarenaFlix</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="scroll-progress"></div>
+    <main>
+        <div class="banner scroll-animate">
+            <div class="content">
+                <h1>Coming Soon</h1>
+                <p>We're currently working on bringing you the best streaming deals!</p>
+            </div>
+        </div>
+
+        <section class="coming-soon scroll-animate">
+            <div class="container">
+                <h2>What to Expect</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Exclusive Deals</h3>
+                        <p>Special discounts on premium subscriptions</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Bundle Savings</h3>
+                        <p>Combined packages at reduced prices</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Price Comparison</h3>
+                        <p>Easy comparison of different service tiers</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Featured Benefits</h3>
+                        <p>Detailed breakdown of service features</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="notify-section scroll-animate">
+            <div class="container">
+                <h2>Get Notified</h2>
+                <p>Leave your email to be the first to know when our plans page launches!</p>
+                <form class="notify-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="cta-button">Notify Me</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 GarenaFlix - Your Premium Streaming Guide. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.scroll-animate').forEach((el) => observer.observe(el));
+
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const scrollPx = document.documentElement.scrollTop;
+            const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = `${scrollPx / winHeightPx * 100}%`;
+            scrollProgress.style.transform = `scaleX(${scrolled})`;
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

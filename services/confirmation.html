@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - GarenaFlix</title>
+    
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/payment-styles.css">
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+            </svg>
+        </div>
+
+        <h1>Payment Successful!</h1>
+        <p class="message">Thank you for your payment. Your subscription will be activated within 24 hours.</p>
+        
+        <div class="details">
+            <div class="transaction-highlight">
+                <p><strong>Transaction ID:</strong> <span id="transactionId"></span></p>
+                <p><strong>Date & Time:</strong> <span id="transactionDate"></span></p>
+            </div>
+            
+            <p><strong>Service:</strong> <span id="serviceName"></span></p>
+            <p><strong>Plan:</strong> <span id="planName"></span></p>
+            <p><strong>Amount Paid:</strong> <span id="amount"></span></p>
+            <p><strong>Payment Method:</strong> <span id="paymentMethod"></span></p>
+            <p><strong>Subscription Period:</strong>
+                <span>
+                    <span id="subscriptionStart"></span> to
+                    <span id="subscriptionEnd"></span>
+                </span>
+            </p>
+            <p><strong>Status:</strong> <span id="status" class="status-success">Confirmed</span></p>
+        </div>
+
+        <div class="support-info">
+            <p>📧 A confirmation email has been sent to <span id="userEmail"></span></p>
+            <p>📱 For support, contact us on WhatsApp: <a href="https://wa.me/923391346064">+92 339 1346064</a></p>
+        </div>
+
+        <div class="button-group">
+            <a href="../index.html" class="button secondary-button">Return Home</a>
+            <a href="#" onclick="downloadReceipt()" class="button primary-button">Download Receipt</a>
+        </div>
+    </div>
+    <script src="../js/payment-handle.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+
+                const paymentDetailsStr = sessionStorage.getItem('paymentDetails');
+                if (!paymentDetailsStr) {
+                    throw new Error('No payment details found');
+                }
+
+                const paymentDetails = JSON.parse(paymentDetailsStr);
+
+                document.getElementById('transactionId').textContent = paymentDetails.transactionId;
+                document.getElementById('transactionDate').textContent = new Date(paymentDetails.date).toLocaleString();
+                document.getElementById('serviceName').textContent = paymentDetails.service.toUpperCase();
+                document.getElementById('planName').textContent = paymentDetails.planName;
+                document.getElementById('amount').textContent = paymentDetails.amount;
+                document.getElementById('paymentMethod').textContent = paymentDetails.paymentMethod.toUpperCase();
+                
+                const startDate = new Date();
+                const endDate = new Date();
+                endDate.setMonth(endDate.getMonth() + 1);
+                
+                document.getElementById('subscriptionStart').textContent = startDate.toLocaleDateString();
+                document.getElementById('subscriptionEnd').textContent = endDate.toLocaleDateString();
+                
+                document.getElementById('userEmail').textContent = sessionStorage.getItem('userEmail') || 'your registered email';
+                
+                localStorage.setItem(`transaction_${paymentDetails.transactionId}`, JSON.stringify(paymentDetails));
+                
+                sessionStorage.removeItem('paymentDetails');
+            } catch (error) {
+                console.error('Error displaying payment details:', error);
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.textContent = 'Unable to display payment details. Please take a screenshot of your Transaction ID and contact support.';
+                document.querySelector('.details').prepend(errorDiv);
+            }
+        });
+
+        function downloadReceipt() {
+            const receiptData = {
+                transactionId: document.getElementById('transactionId').textContent,
+                date: document.getElementById('transactionDate').textContent,
+                service: document.getElementById('serviceName').textContent,
+                plan: document.getElementById('planName').textContent,
+                amount: document.getElementById('amount').textContent,
+                paymentMethod: document.getElementById('paymentMethod').textContent,
+                subscriptionStart: document.getElementById('subscriptionStart').textContent,
+                subscriptionEnd: document.getElementById('subscriptionEnd').textContent,
+                status: document.getElementById('status').textContent,
+                customerEmail: document.getElementById('userEmail').textContent,
+                supportContact: '+92 302 1346064',
+                companyName: 'GarenaFlix Entertainment Hub',
+                receiptNumber: `REC-${Date.now()}`,
+                issueDate: new Date().toLocaleString(),
+                currency: 'PKR'
+            };
+            
+            console.log('Receipt Data:', receiptData);
+            alert('Receipt download will be available soon');
+            
+            localStorage.setItem(`receipt_${receiptData.transactionId}`, JSON.stringify(receiptData));
+        }
+    </script>
+</body>
+</html>

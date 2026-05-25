@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GarenaFlix-Payment Methods</title>
+     
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/payment-styles.css">
+    
+    <script src="../js/payment-handle.js"></script>
+</head>
+<body>
+    <div class="payment-container">
+        <div class="plan-summary">
+            <h1 class="plan-name" id="planName">Payment for Subscriptions</h1>
+            <p class="plan-price" id="planPrice"></p>
+        </div>
+
+        <div class="payment-methods">
+            <div class="payment-method-tab active" onclick="switchPaymentMethod('nayapay')">Naya Pay</div>
+            <div class="payment-method-tab" onclick="switchPaymentMethod('sadapay')">Sada Pay</div>
+            <div class="payment-method-tab" onclick="switchPaymentMethod('easypaisa')">EasyPaisa</div>
+            <div class="payment-method-tab" onclick="switchPaymentMethod('jazzcash')">JazzCash</div>
+        </div>
+
+        <div id="NAYA PAY" class="payment-form active">
+            <div class="bank-details">
+                <h3>NAYA PAY</h3>
+                <div class="payment-info">
+                    <span class="payment-info-label">Bank Name:</span>
+                    <b>Raj Kumar</b>
+                </div>
+                <div class="separator"></div>
+                <p>
+                    <span class="payment-info-label">Account Number:</span>
+                    <span>
+                        <b>PK45NAYA1234503021346064</b>
+                        <label class="copy-container">
+                            <input type="checkbox" onclick="handleCopy(this, 'PK45NAYA1234503021346064')">
+                            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="clipboard">
+                                <path d="M280 64h40c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h40 9.6C121 27.5 153.3 0 192 0s71 27.5 78.4 64H280zM64 112c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320c8.8 0 16-7.2 16-16V128c0-8.8-7.2-16-16-16H304v24c0 13.3-10.7 24-24 24H192 104c-13.3 0-24-10.7-24-24V112H64zm128-8a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"></path>
+                            </svg>
+                            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="clipboard-check">
+                                <path d="M192 0c-41.8 0-77.4 26.7-90.5 64H64C28.7 64 0 92.7 0 128V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H282.5C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM305 273L177 401c-9.4 9.4-24.6 9.4-33.9 0L79 337c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L271 239c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path>
+                            </svg>
+                        </label>
+                    </span>
+                </p>
+                <p>
+                    <span class="payment-info-label">Naya Pay Number:</span>
+                    <span>
+                        <b>03021346064</b>
+                        <label class="copy-container">
+                            <input type="checkbox" onclick="handleCopy(this, '03021346064')">
+                            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="clipboard">
+                                <path d="M280 64h40c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h40 9.6C121 27.5 153.3 0 192 0s71 27.5 78.4 64H280zM64 112c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320c8.8 0 16-7.2 16-16V128c0-8.8-7.2-16-16-16H304v24c0 13.3-10.7 24-24 24H192 104c-13.3 0-24-10.7-24-24V112H64zm128-8a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"></path>
+                            </svg>
+                            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="clipboard-check">
+                                <path d="M192 0c-41.8 0-77.4 26.7-90.5 64H64C28.7 64 0 92.7 0 128V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H282.5C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM305 273L177 401c-9.4 9.4-24.6 9.4-33.9 0L79 337c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L271 239c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path>
+                            </svg>
+                        </label>
+                    </span>
+                </p>
+                <div class="separator"></div>
+                <div class="payment-info">
+                    <span class="payment-info-label">Account Type:</span>
+                    <b>Current</b>
+                </div>
+            </div>
+
+            <form onsubmit="handlePayment(event, 'nayapay')">
+                <div class="form-group">
+                    <label for="transferRef">Transfer Reference Number</label>
+                    <input type="text" id="transferRef" required>
+                </div>
+                <div class="form-group">
+                    <label for="transferDate">Transfer Date</label>
+                    <input type="date" id="transferDate" required>
+                </div>
+                <button type="submit">Confirm Transfer</button>
+            </form>
+        </div>
+
+
+
+        <div id="SADA PAY" class="payment-form">
+            <div class="bank-details">
+                <h3>SADA PAY</h3>
+                <div class="payment-info">
+                    <span class="payment-info-label">Name:</span>
+                    <b>Raj Kumar</b>
+                </div>
+                <div class="separator"></div>
+                <p>
+                    <span class="payment-info-label">Account Number:</span>
+                    <span>
+                        <b>PK09SADA0000003021346064</b>
+                        <label class="copy-container">
+                            <input type="checkbox" onclick="handleCopy(this, 'PK09SADA0000003021346064')">
+                            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="clipboard">
+                                <path d="M280 64h40c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h40 9.6C121 27.5 153.3 0 192 0s71 27.5 78.4 64H280zM64 112c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320c8.8 0 16-7.2 16-16V128c0-8.8-7.2-16-16-16H304v24c0 13.3-10.7 24-24 24H192 104c-13.3 0-24-10.7-24-24V112H64zm128-8a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"></path>
+                            </svg>
+                            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="clipboard-check">
+                                <path d="M192 0c-41.8 0-77.4 26.7-90.5 64H64C28.7 64 0 92.7 0 128V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H282.5C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM305 273L177 401c-9.4 9.4-24.6 9.4-33.9 0L79 337c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L271 239c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path>
+                            </svg>
+                        </label>
+                    </span>
+                </p>
+                <p>
+                    <span class="payment-info-label">SADA pay Number:</span>
+                    <span>
+                        <b>03021346064</b>
+                        <label class="copy-container">
+                            <input type="checkbox" onclick="handleCopy(this, '03021346064')">
+                            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="clipboard">
+                                <path d="M280 64h40c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h40 9.6C121 27.5 153.3 0 192 0s71 27.5 78.4 64H280zM64 112c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320c8.8 0 16-7.2 16-16V128c0-8.8-7.2-16-16-16H304v24c0 13.3-10.7 24-24 24H192 104c-13.3 0-24-10.7-24-24V112H64zm128-8a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"></path>
+                            </svg>
+                            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="clipboard-check">
+                                <path d="M192 0c-41.8 0-77.4 26.7-90.5 64H64C28.7 64 0 92.7 0 128V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H282.5C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM305 273L177 401c-9.4 9.4-24.6 9.4-33.9 0L79 337c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L271 239c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path>
+                            </svg>
+                        </label>
+                    </span>
+                </p>
+                <div class="separator"></div>
+                <div class="payment-info">
+                    <span class="payment-info-label">Account Type:</span>
+                    <b>Current</b>
+                </div>
+            </div>
+
+            <form onsubmit="handlePayment(event, 'sadapay')">
+                <div class="form-group">
+                    <label for="transferRef">Transfer Reference Number</label>
+                    <input type="text" id="transferRef" required>
+                </div>
+                <div class="form-group">
+                    <label for="transferDate">Transfer Date</label>
+                    <input type="date" id="transferDate" required>
+                </div>
+                <button type="submit">Confirm Transfer</button>
+            </form>
+        </div>
+        
+
+
+        <div id="EasyPaisa" class="payment-form">
+            <div class="bank-details">
+                <h3>EasyPaisa</h3>
+                <div class="payment-info">
+                    <span class="payment-info-label">Name:</span>
+                    <b>Raj Kumar</b>
+                </div>
+                <div class="separator"></div>
+                <p>
+                    <span class="payment-info-label">EasyPaisa Number:</span>
+                    <span>
+                        <b>03021346064</b>
+                        <label class="copy-container">
+                            <input type="checkbox" onclick="handleCopy(this, '03021346064')">
+                            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="clipboard">
+                                <path d="M280 64h40c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h40 9.6C121 27.5 153.3 0 192 0s71 27.5 78.4 64H280zM64 112c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320c8.8 0 16-7.2 16-16V128c0-8.8-7.2-16-16-16H304v24c0 13.3-10.7 24-24 24H192 104c-13.3 0-24-10.7-24-24V112H64zm128-8a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"></path>
+                            </svg>
+                            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="clipboard-check">
+                                <path d="M192 0c-41.8 0-77.4 26.7-90.5 64H64C28.7 64 0 92.7 0 128V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H282.5C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM305 273L177 401c-9.4 9.4-24.6 9.4-33.9 0L79 337c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L271 239c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path>
+                            </svg>
+                        </label>
+                    </span>
+                </p>
+                <div class="separator"></div>
+                <div class="payment-info">
+                    <span class="payment-info-label">Account Type:</span>
+                    <b>Current</b>
+                </div>
+            </div>
+
+            <form onsubmit="handlePayment(event, 'easypaisa')">
+                <div class="form-group">
+                    <label for="transferRef">Transfer Reference Number</label>
+                    <input type="text" id="transferRef" required>
+                </div>
+                <div class="form-group">
+                    <label for="transferDate">Transfer Date</label>
+                    <input type="date" id="transferDate" required>
+                </div>
+                <button type="submit">Confirm Transfer</button>
+            </form>
+        </div>
+
+
+
+        <div id="JazzCash" class="payment-form">
+            <div class="bank-details">
+                <h3>JazzCash</h3>
+                <div class="payment-info">
+                    <span class="payment-info-label">Name:</span>
+                    <b>Raj Kumar</b>
+                </div>
+                <div class="separator"></div>
+                <p>
+                    <span class="payment-info-label">JazzCash Number:</span>
+                    <span>
+                        <b>03021346064</b>
+                        <label class="copy-container">
+                            <input type="checkbox" onclick="handleCopy(this, '03021346064')">
+                            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="clipboard">
+                                <path d="M280 64h40c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h40 9.6C121 27.5 153.3 0 192 0s71 27.5 78.4 64H280zM64 112c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320c8.8 0 16-7.2 16-16V128c0-8.8-7.2-16-16-16H304v24c0 13.3-10.7 24-24 24H192 104c-13.3 0-24-10.7-24-24V112H64zm128-8a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"></path>
+                            </svg>
+                            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="clipboard-check">
+                                <path d="M192 0c-41.8 0-77.4 26.7-90.5 64H64C28.7 64 0 92.7 0 128V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H282.5C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM305 273L177 401c-9.4 9.4-24.6 9.4-33.9 0L79 337c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L271 239c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path>
+                            </svg>
+                        </label>
+                    </span>
+                </p>
+                <div class="separator"></div>
+                <div class="payment-info">
+                    <span class="payment-info-label">Account Type:</span>
+                    <b>Current</b>
+                </div>
+            </div>
+
+            <form onsubmit="handlePayment(event, 'jazcash')">
+                <div class="form-group">
+                    <label for="transferRef">Transfer Reference Number</label>
+                    <input type="text" id="transferRef" required>
+                </div>
+                <div class="form-group">
+                    <label for="transferDate">Transfer Date</label>
+                    <input type="date" id="transferDate" required>
+                </div>
+                <button type="submit">Confirm Transfer</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <script>
+        // Update plan information more reliably
+        window.addEventListener('load', () => {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const planType = urlParams.get('plan');
+                const source = urlParams.get('source');
+                
+                if (!source || !planType) {
+                    throw new Error('Missing plan information');
+                }
+                
+                const plans = paymentHandler.getPlanDetails()[source];
+                if (!plans) {
+                    throw new Error('Invalid service selected');
+                }
+                
+                const plan = plans[planType];
+                if (!plan) {
+                    throw new Error('Invalid plan selected');
+                }
+                
+                document.getElementById('planName').textContent = `${source.toUpperCase()} - ${plan.name}`;
+                document.getElementById('planPrice').textContent = plan.price;
+                
+                switchPaymentMethod('nayapay');
+            } catch (error) {
+                showMessage(error.message, 'error');
+                setTimeout(() => {
+                    window.location.href = '../index.html';
+                }, 3000);
+            }
+        });
+
+        function switchPaymentMethod(method) {
+            // Remove active class from all tabs and forms
+            document.querySelectorAll('.payment-method-tab').forEach(tab => 
+                tab.classList.remove('active'));
+            document.querySelectorAll('.payment-form').forEach(form => 
+                form.classList.remove('active'));
+            
+            // Fix method mappings
+            const methodMap = {
+                'nayapay': 1,
+                'sadapay': 2,
+                'easypaisa': 3,
+                'jazzcash': 4
+            };
+            
+            document.querySelector(`.payment-method-tab:nth-child(${methodMap[method]})`).classList.add('active');
+            
+            // Fix form IDs to match HTML
+            const formId = {
+                'nayapay': 'NAYA PAY',
+                'sadapay': 'SADA PAY',
+                'easypaisa': 'EasyPaisa',
+                'jazzcash': 'JazzCash'
+            }[method];
+            
+            document.getElementById(formId).classList.add('active');
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
+                .then(() => alert('Copied to clipboard!'))
+                .catch(err => console.error('Failed to copy:', err));
+        }
+
+        // Handle payment submission with better error handling
+        function handlePayment(event, method) {
+            event.preventDefault();
+            
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const source = urlParams.get('source');
+                const planType = urlParams.get('plan');
+                
+                if (!source || !planType) {
+                    throw new Error('Invalid payment parameters');
+                }
+
+                const form = event.target;
+                const transferRef = form.querySelector('#transferRef').value;
+                const transferDate = form.querySelector('#transferDate').value;
+
+                const plan = paymentHandler.getPlanDetails()[source][planType];
+                
+                const paymentDetails = {
+                    transactionId: `TRX${Date.now()}`,
+                    service: source,
+                    planType: planType,
+                    planName: plan.name,
+                    amount: plan.price,
+                    paymentMethod: method,
+                    transferRef: transferRef,
+                    transferDate: transferDate,
+                    date: new Date().toISOString(),
+                    status: 'COMPLETED'
+                };
+
+                sessionStorage.setItem('paymentDetails', JSON.stringify(paymentDetails));
+
+                showMessage(`Processing ${method.toUpperCase()} payment...`, 'info');
+                
+                setTimeout(() => {
+                    showMessage('Payment successful!', 'success');
+                    setTimeout(() => {
+                        window.location.href = `../services/confirmation.html?txn=${paymentDetails.transactionId}`;
+                    }, 1500);
+                }, 2000);
+
+            } catch (error) {
+                console.error('Payment error:', error);
+                showMessage(error.message, 'error');
+                setTimeout(() => window.history.back(), 3000);
+            }
+        }
+
+        function handleCopy(checkbox, text) {
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    setTimeout(() => {
+                        checkbox.checked = false;
+                    }, 2000);
+                })
+                .catch(err => console.error('Failed to copy:', err));
+        }
+
+        window.addEventListener('load', () => {
+            switchPaymentMethod('nayapay');
+        });
+
+        function showMessage(message, type = 'info') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `alert alert-${type}`;
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px;
+                border-radius: 4px;
+                color: white;
+                background: ${type === 'error' ? '#dc3545' : '#28a745'};
+                z-index: 1000;
+            `;
+            messageDiv.textContent = message;
+            document.body.appendChild(messageDiv);
+            setTimeout(() => messageDiv.remove(), 3000);
+        }
+
+        // Add form validation
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                if (!this.checkValidity()) {
+                    e.preventDefault();
+                    showMessage('Please fill in all required fields correctly', 'error');
+                }
+            });
+        });
+
+        // Update plan information more reliably
+        window.addEventListener('load', () => {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const planType = urlParams.get('plan');
+                const source = urlParams.get('source');
+                
+                if (!source || !planType) {
+                    throw new Error('Missing plan information');
+                }
+                
+                const plans = paymentHandler.getPlanDetails()[source];
+                if (!plans) {
+                    throw new Error('Invalid service selected');
+                }
+                
+                const plan = plans[planType];
+                if (!plan) {
+                    throw new Error('Invalid plan selected');
+                }
+                
+                document.getElementById('planName').textContent = `${source.toUpperCase()} - ${plan.name}`;
+                document.getElementById('planPrice').textContent = plan.price;
+                
+                switchPaymentMethod('nayapay');
+            } catch (error) {
+                showMessage(error.message, 'error');
+                setTimeout(() => {
+                    window.location.href = '../index.html';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Subscription Plans</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .plans-header h1 {
+            background: linear-gradient(to right, #e50914, #b20710);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features li::before {
+            color: #e50914;
+        }
+
+        .plan .cta-button {
+            background: linear-gradient(45deg, #e50914, #b20710);
+        }
+
+        .plan:hover {
+            border: 1px solid rgba(229, 9, 20, 0.3);
+        }
+    </style>
+    <link rel="icon" type="image/icon" href="../images/netflix.png">
+
+    <meta name="service-name" content="netflix">
+
+    <script src="../js/payment-handle.js"></script>
+</head>
+<body>
+    <div class="plans-container">
+        <div class="plans-header scroll-animate">
+            <h1>Netflix</h1>
+        </div>
+
+        <div class="plan-cards">
+            <div class="plan scroll-animate">
+                <h2>Basic</h2>
+                <p class="price">Rs.200/month</p>
+                <div class="features">
+                    <ul>
+                        <li>No free trial</li>
+                        <li>1 profile with Pin</li>
+                        <li>1 Screen ony Mobile</li>
+                        <li>No Downloading</li>
+                        <li>480p Streaming</li>
+                        <li>Team Support</li>
+                    </ul>
+                </div>
+                <button class="cta-button" onclick="paymentHandler.goToPayment('basic', 'netflix')" data-plan="basic" data-price="200">GET STARTED</button>
+            </div>
+
+            <div class="plan scroll-animate">
+                <h2>Premium</h2>
+                <p class="price">Rs.300/month</p>
+                <div class="features">
+                    <ul>
+                        <li>1 Days free trial</li>
+                        <li>1 Profile with Pin</li>
+                        <li>1 Screen</li>
+                        <li>1 Downloading</li>
+                        <li>720p Streaming</li>
+                        <li>Team Support</li>
+                    </ul>
+                </div>
+                <button class="cta-button" onclick="paymentHandler.goToPayment('premium', 'netflix')">GET STARTED</button>
+            </div>
+
+            <div class="plan scroll-animate">
+                <h2>Super Premium</h2>
+                <p class="price">Rs.400/month</p>
+                <div class="features">
+                    <ul>
+                        <li>3 Days free trial</li>
+                        <li>1 Profile with Pin</li>
+                        <li>1 Screen</li>
+                        <li>1 Downloading</li>
+                        <li>4k Streaming</li>
+                        <li>24.hr Team Support</li>
+                    </ul>
+                </div>
+                <button class="cta-button" onclick="paymentHandler.goToPayment('super', 'netflix')">GET STARTED</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe all elements with scroll-animate class
+        document.querySelectorAll('.scroll-animate').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
